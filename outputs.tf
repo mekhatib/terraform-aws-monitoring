@@ -5,8 +5,8 @@ output "config_recorder_name" {
 }
 
 output "config_recorder_arn" {
-  description = "ARN of the AWS Config recorder"
-  value       = aws_config_configuration_recorder.main.arn
+  description = "ARN of the AWS Config Configuration Recorder"
+  value       = "arn:aws:config:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:config-recorder/${aws_config_configuration_recorder.main.name}"
 }
 
 output "config_bucket_name" {
