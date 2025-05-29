@@ -48,7 +48,7 @@ variable "config_rules" {
       description                 = "Ensure required tags are present on resources"
       source_owner               = "AWS"
       source_identifier          = "REQUIRED_TAGS"
-      input_parameters           = jsonencode({ tag1Key = "Project", tag2Key = "Environment" })
+      input_parameters           = "{\"tag1Key\":\"Project\",\"tag2Key\":\"Environment\"}"
       maximum_execution_frequency = "TwentyFour_Hours"
       scope                      = null
     }
