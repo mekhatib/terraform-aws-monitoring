@@ -415,7 +415,7 @@ resource "aws_cloudwatch_dashboard" "main" {
       ],
       
       # Custom Widgets
-      var.custom_dashboard_widgets
+      var.custom_dashboard_widgets != null ? var.custom_dashboard_widgets : []
     )
   })
 }
