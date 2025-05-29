@@ -193,14 +193,8 @@ resource "aws_config_configuration_recorder" "main" {
 
   recording_group {
     all_supported                 = var.record_all_resources
-    include_global_resource_types = var.include_global_resources
-    
-    dynamic "resource_types" {
-      for_each = var.record_all_resources ? [] : [1]
-      content {
-        resource_types = var.specific_resource_types
-      }
-    }
+    include_global_resource_types = true
+    resource_types                = var.record_all_resources ? null : var.selected_resource_types
   }
 
   depends_on = [aws_config_delivery_channel.main]
