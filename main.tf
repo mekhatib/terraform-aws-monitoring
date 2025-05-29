@@ -1,3 +1,7 @@
+data "aws_region" "current" {}
+
+data "aws_caller_identity" "current" {}
+
 # S3 Bucket for AWS Config
 resource "aws_s3_bucket" "config" {
   bucket = "${var.project_name}-${var.environment}-config-${data.aws_caller_identity.current.account_id}"
