@@ -178,3 +178,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "selected_resource_types" {
+  type        = list(string)
+  description = "List of specific AWS resource types to record when record_all_resources is false"
+  default     = [] # or provide a sensible default
+}
